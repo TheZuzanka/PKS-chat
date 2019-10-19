@@ -20,7 +20,7 @@ int main() {
     printf("Inicializovane.\n");
 
     //po inicializacii potrebujem IPčku kam posielam/prijimam
-    printf("IP adresu druhého pocitaca:\n");
+    printf("IP adresu druheho pocitaca:\n");
     scanf("%s", ip_adress);
 
     //teraz potrebujem port

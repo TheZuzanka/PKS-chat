@@ -52,7 +52,7 @@ void *receiving(void *vargp) {
                     if(broken_packets == NULL){
                         broken_packets = malloc(20 * sizeof(int));
                     }
-                    printf("Pridavam packet do pola, ktore packety chcem poslat znova\n.");
+                    printf("Pridavam packet do pola, ktore packety chcem poslat znova\n");
                     broken_packets[broken_packets_size] = recv_message->fragment_number;
                     broken_packets_size++;
                 }
@@ -111,8 +111,9 @@ PACKET_HEADER *receive_message(CONFIGURATION *configuration) {
     if ((recvfrom(configuration->socket, message, sizeof(PACKET_HEADER), 0,
                   (struct sockaddr *) &(configuration->socket_config), &size)) ==
         SOCKET_ERROR) {
-        printf("recvfrom() zlyhalo error code : %d", WSAGetLastError());
-        exit(EXIT_FAILURE);
+        //printf("recvfrom() zlyhalo error code : %d", WSAGetLastError());
+        //printf("server odpojeny\n");
+        //exit(EXIT_FAILURE);
     } else {
 
     }

@@ -11,8 +11,8 @@ void *keep_alive(void *vargp) {
         counter++;
 
         if(counter == 4){
-            printf("Spojenie prerušené.. Zastavujem.. \n");
-            run_thread = 0;
+            printf("Spojenie prerusene.. Zastavujem.. \n");
+            exit(100);
         }
 
         sleep(30);
