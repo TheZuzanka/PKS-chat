@@ -43,13 +43,13 @@ typedef struct packet_header {
     int fragment_number;
     int crc;
     int data_size;                          //ak je T_RESPONSE, posielam kolko intov mi ide v poli
-    unsigned char data[1484];
+    unsigned char data[1456];               //1500 - 16 - 28 odcitam hlavicku UDP a IP (28) a moju hlavicku (po zarovnani 16)
 } PACKET_HEADER;
 
 typedef struct first_message {
     int total_packets;
     char type;
-    char file_name[1472];
+    char file_name[1464];                   //1500 - 8 - 28 odcitam hlavicku UDP a IP (28) a moju hlavicku (po zarovnani 8)
 } FIRST_MESSAGE;
 
 typedef struct message_part {

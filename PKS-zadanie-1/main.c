@@ -31,11 +31,11 @@ int main() {
     //ak je mensia ako velkost hlavicky + aspon jeden B dat, nema zmysel nieco vobec posielat
     printf("Velkost fragmentu:\n");
     scanf("%d", &max_size_of_packet);
-    if(max_size_of_packet < sizeof(PACKET_HEADER) - 1490){
+    if(max_size_of_packet < 16 + 1){
         printf("Velkost fragmentu nie je dostacujuca pre hlaciku.\n");
         exit(-1);
     }
-    if(max_size_of_packet > 1500 - (sizeof(PACKET_HEADER) - 1490)){
+    if(max_size_of_packet > 1456){
         printf("Velkost fragmentu je prilis velka, dochadza k fragmentacii na linkovej vrstve\n");
         exit(-1);
     }
