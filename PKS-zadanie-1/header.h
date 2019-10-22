@@ -12,6 +12,7 @@
 #include<winsock2.h>
 #include <unistd.h>
 #include <pthread.h>
+#include <windows.h>
 
 #pragma comment(lib, "ws2_32.lib")
 

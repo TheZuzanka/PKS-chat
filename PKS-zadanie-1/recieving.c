@@ -25,7 +25,9 @@ void *receiving(void *vargp) {
                 messages_sizes = (int *) calloc((first_message->total_packets), sizeof(int));
                 if (type == T_FILE) {
                     file = fopen(first_message->file_name, "ab");
-                    printf("Vo working directory bol vytvoreny subor s menom: %s\n", first_message->file_name);
+                    char full_path[_MAX_PATH];
+                    _fullpath(full_path, first_message->file_name, _MAX_PATH);
+                    printf("V adresári %s bol vytvoreny subor s menom: %s\n", full_path ,first_message->file_name);
                 } else {
                     file = stdout;
                 }
@@ -44,7 +46,8 @@ void *receiving(void *vargp) {
                        max_size_of_packet);
                 messages_sizes[recv_message->fragment_number] = recv_message->data_size;
 
-                printf("Prijimam packet #%d/%d\n", recv_message->fragment_number, total_packets - 1);
+                printf("Prijimam packet #%d/%d, velkost = %d\n", (recv_message->fragment_number) + 1, total_packets,
+                       recv_message->data_size + 16);
 
                 int expected_crc = hash(recv_message->data, recv_message->data_size);
                 if(expected_crc != recv_message->crc){
