@@ -81,7 +81,7 @@ void server(CONFIGURATION *config_socket) {
 
     //zavolam bind, adresa moja, nie druheho pocitaca ("ja" hostujem socket)
     if (bind(config_socket->socket, (struct sockaddr *) &server_config, sizeof(server_config)) == SOCKET_ERROR) {
-        printf("Funkcia bind prebehla spravne, kod chyby: %d", WSAGetLastError());
+        printf("Funkcia bind neprebehla spravne, kod chyby: %d", WSAGetLastError());
         exit(1);
     }
     printf("Bind vykonany.\n");
@@ -113,6 +113,7 @@ void client(CONFIGURATION *config_socket) {
     pthread_create(&send, NULL, sending, config_socket);
     pthread_create(&receive, NULL, receiving, config_socket);
     pthread_create(&keep_alive_t, NULL, keep_alive, config_socket);
+    getchar();
     pthread_join(send, NULL);
     pthread_join(receive, NULL);
     pthread_join(keep_alive_t, NULL);
