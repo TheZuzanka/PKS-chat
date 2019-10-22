@@ -51,6 +51,7 @@ void *sending(void *vargp) {
                     fflush(stdin);
                     break;
                 case T_EXIT:
+                    printf("Ukoncujem program..");
                     exit(27);
                 default:
                     printf("Prikaz nerozpoznany\n");
