@@ -15,7 +15,7 @@ void *keep_alive(void *vargp) {
             exit(100);
         }
 
-        sleep(30);
+        sleep(10);
     }
 
     return NULL;
