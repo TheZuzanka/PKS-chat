@@ -49,7 +49,7 @@ typedef struct packet_header {
 typedef struct first_message {
     int total_packets;
     char type;
-    char file_name[1464];                   //1500 - 8 - 28 odcitam hlavicku UDP a IP (28) a moju hlavicku (po zarovnani 8)
+    char file_name[1448];                   //1500 - 8 - 28 odcitam hlavicku UDP a IP (28) a moju hlavicku (po zarovnani 8)
 } FIRST_MESSAGE;
 
 typedef struct message_part {

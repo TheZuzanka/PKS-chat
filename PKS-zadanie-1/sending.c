@@ -34,9 +34,9 @@ void *sending(void *vargp) {
                     ask_again = 0;
                     unsigned char *name_of_file;
                     printf("Zadaj nazov suboru:\n");
-                    get_message(&name_of_file, 1472, stdin, &messageSize);
-                    memcpy(first_packet->file_name, name_of_file, 1472 * sizeof(char));
-                    for (int i = 0; i < 1472; i++) {
+                    get_message(&name_of_file, 1456, stdin, &messageSize);
+                    memcpy(first_packet->file_name, name_of_file, 1456 * sizeof(char));
+                    for (int i = 0; i < 1448; i++) {
                         if (first_packet->file_name[i] == '\n') {
                             first_packet->file_name[i] = '\0';
                             break;
