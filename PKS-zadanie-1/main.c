@@ -111,9 +111,9 @@ void client(CONFIGURATION *config_socket) {
     //spustim vlakna pre posielanie, prijimanie a keep-alive, ktory posiela client na server
     pthread_t send, receive, keep_alive_t;
     pthread_create(&send, NULL, sending, config_socket);
+    getchar();
     pthread_create(&receive, NULL, receiving, config_socket);
     pthread_create(&keep_alive_t, NULL, keep_alive, config_socket);
-    getchar();
     pthread_join(send, NULL);
     pthread_join(receive, NULL);
     pthread_join(keep_alive_t, NULL);
