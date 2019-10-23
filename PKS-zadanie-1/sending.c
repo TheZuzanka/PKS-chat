@@ -235,7 +235,6 @@ void free_linked_list(MESSAGE_PART **linked_list) {
     while (aktual != NULL) {
 
         next = aktual->next;
-        free(aktual->packet->data);
         free(aktual);
         aktual = next;
     }
